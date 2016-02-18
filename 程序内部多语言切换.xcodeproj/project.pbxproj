@@ -15,6 +15,9 @@
 		5C03E45B1C759F14003A4C2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C03E4591C759F14003A4C2A /* LaunchScreen.storyboard */; };
 		5C03E4661C759F14003A4C2A /* _________Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C03E4651C759F14003A4C2A /* _________Tests.m */; };
 		5C03E4711C759F14003A4C2A /* _________UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C03E4701C759F14003A4C2A /* _________UITests.m */; };
+		5C03E4801C75A059003A4C2A /* LocalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C03E47F1C75A059003A4C2A /* LocalViewController.m */; };
+		5C03E4881C75A21E003A4C2A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C03E48A1C75A21E003A4C2A /* Localizable.strings */; };
+		5C03E48E1C75B444003A4C2A /* ACLanguageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C03E48D1C75B444003A4C2A /* ACLanguageUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,15 @@
 		5C03E46C1C759F14003A4C2A /* 程序内部多语言切换UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "程序内部多语言切换UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C03E4701C759F14003A4C2A /* _________UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_________UITests.m"; sourceTree = "<group>"; };
 		5C03E4721C759F14003A4C2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C03E47E1C75A059003A4C2A /* LocalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalViewController.h; sourceTree = "<group>"; };
+		5C03E47F1C75A059003A4C2A /* LocalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalViewController.m; sourceTree = "<group>"; };
+		5C03E4861C75A215003A4C2A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		5C03E4871C75A216003A4C2A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		5C03E4891C75A21E003A4C2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5C03E48B1C75A220003A4C2A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5C03E48C1C75B444003A4C2A /* ACLanguageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACLanguageUtil.h; sourceTree = "<group>"; };
+		5C03E48D1C75B444003A4C2A /* ACLanguageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACLanguageUtil.m; sourceTree = "<group>"; };
+		5C03E48F1C75B590003A4C2A /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +117,11 @@
 				5C03E44F1C759F14003A4C2A /* AppDelegate.m */,
 				5C03E4511C759F14003A4C2A /* ViewController.h */,
 				5C03E4521C759F14003A4C2A /* ViewController.m */,
+				5C03E47E1C75A059003A4C2A /* LocalViewController.h */,
+				5C03E47F1C75A059003A4C2A /* LocalViewController.m */,
 				5C03E4541C759F14003A4C2A /* Main.storyboard */,
+				5C03E48C1C75B444003A4C2A /* ACLanguageUtil.h */,
+				5C03E48D1C75B444003A4C2A /* ACLanguageUtil.m */,
 				5C03E4571C759F14003A4C2A /* Assets.xcassets */,
 				5C03E4591C759F14003A4C2A /* LaunchScreen.storyboard */,
 				5C03E45C1C759F14003A4C2A /* Info.plist */,
@@ -117,7 +133,9 @@
 		5C03E44B1C759F14003A4C2A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5C03E48F1C75B590003A4C2A /* PrefixHeader.pch */,
 				5C03E44C1C759F14003A4C2A /* main.m */,
+				5C03E48A1C75A21E003A4C2A /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -225,6 +243,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 5C03E43F1C759F14003A4C2A;
 			productRefGroup = 5C03E4491C759F14003A4C2A /* Products */;
@@ -244,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C03E45B1C759F14003A4C2A /* LaunchScreen.storyboard in Resources */,
+				5C03E4881C75A21E003A4C2A /* Localizable.strings in Resources */,
 				5C03E4581C759F14003A4C2A /* Assets.xcassets in Resources */,
 				5C03E4561C759F14003A4C2A /* Main.storyboard in Resources */,
 			);
@@ -272,7 +292,9 @@
 			files = (
 				5C03E4531C759F14003A4C2A /* ViewController.m in Sources */,
 				5C03E4501C759F14003A4C2A /* AppDelegate.m in Sources */,
+				5C03E4801C75A059003A4C2A /* LocalViewController.m in Sources */,
 				5C03E44D1C759F14003A4C2A /* main.m in Sources */,
+				5C03E48E1C75B444003A4C2A /* ACLanguageUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +334,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				5C03E4551C759F14003A4C2A /* Base */,
+				5C03E4861C75A215003A4C2A /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -320,8 +343,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				5C03E45A1C759F14003A4C2A /* Base */,
+				5C03E4871C75A216003A4C2A /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5C03E48A1C75A21E003A4C2A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C03E4891C75A21E003A4C2A /* en */,
+				5C03E48B1C75A220003A4C2A /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -353,6 +386,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -395,6 +429,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

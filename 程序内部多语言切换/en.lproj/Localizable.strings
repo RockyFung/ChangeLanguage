@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  程序内部多语言切换
+
+  Created by rocky on 16/2/18.
+  Copyright © 2016年 RockyFung. All rights reserved.
+*/
+"go to" = "go to";
+"back" = "back";
+"str" = "other string";
+"change" = "change";
