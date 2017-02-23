@@ -13,6 +13,6 @@
 @property (strong, nonatomic) UIWindow *window;
 
 
-- (void)reDrawAllUIForLanguage:(NSString *)language;
+- (void)changeAllUILanguage:(NSString *)language;
 @end
 

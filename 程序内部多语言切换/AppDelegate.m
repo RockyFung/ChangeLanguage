@@ -7,16 +7,16 @@
 //
 
 #import "AppDelegate.h"
-#import "ACLanguageUtil.h"
+#import "RFChangeLanguage.h"
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
-
-- (void)reDrawAllUIForLanguage:(NSString *)language {
-    [[ACLanguageUtil sharedInstance] setLanguage:language];
+// 改变所有UI语言
+- (void)changeAllUILanguage:(NSString *)language {
+    [[RFChangeLanguage sharedInstance] setLanguage:language];
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

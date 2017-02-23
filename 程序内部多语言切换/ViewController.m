@@ -7,58 +7,81 @@
 //
 
 #import "ViewController.h"
-#import "LocalViewController.h"
-
-
-#import "ACLanguageUtil.h"
+#import "RFChangeLanguage.h"
 #import "AppDelegate.h"
+
+static NSString *switchToLanguageCodeString = nil;
+
 @interface ViewController ()
-@property (nonatomic, strong) UIButton *btn;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(50, 100, 200, 50);
-    [btn setTitle:NSLocalizedString(@"go to",nil) forState:UIControlStateNormal];
-    btn.backgroundColor = [UIColor blackColor];
-    [btn addTarget:self action:@selector(action) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
-    self.btn = btn;
-    
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     // 添加通知，改变语言
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveLanguageChangedNotification:)
-                                                 name:ACLanguageUtilLanguageIdentifier
+                                                 name:RFChangeLanguageIdentifier
                                                object:nil];
+
     
 }
-
-
-// 接收到通知执行的方法
-- (void) receiveLanguageChangedNotification:(NSNotification *) notification
-{
-    if ([notification.name isEqualToString:ACLanguageUtilLanguageIdentifier])
-    {
-        [self.btn setTitle:NSLocalizedString(@"go to",nil) forState:UIControlStateNormal];
-    }
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    NSString *current = [[RFChangeLanguage sharedInstance] currentSaveLanguage];
+    NSLog(@"上次保存语言 %@",current);
+    
+    NSString *sysLan = [[RFChangeLanguage sharedInstance] systemLanguage];
+    NSLog(@"系统默认语言 %@",sysLan);
+    
+    [self setLabelLanguage];
+}
+- (void)setLabelLanguage{
+    NSString *current = [[RFChangeLanguage sharedInstance] currentSaveLanguage];
+    NSString *testStr = NSLocalizedString(@"我是测试字符串", nil); // @""里的中文相当于key
+    self.titleLabel.text = [NSString stringWithFormat:@"%@ (%@)",testStr,current];
+    self.imageView.image = [UIImage imageNamed:NSLocalizedString(@"imgName", nil)];
 }
 
+- (IBAction)changeToChinese:(id)sender {
+    switchToLanguageCodeString = @"zh-Hans"; // 简体中文
+    [self changeLanguageWithLanguage];
+}
+- (IBAction)changeToEnglish:(id)sender {
+    switchToLanguageCodeString = @"en"; // 英文
+    [self changeLanguageWithLanguage];
+}
+- (IBAction)changeToJapanese:(id)sender {
+    switchToLanguageCodeString = @"ja"; // 日文
+    [self changeLanguageWithLanguage];
+}
 
-// 跳转到第二个页面
-- (void)action{
-    LocalViewController *vc = [[LocalViewController alloc]init];
-    [self presentViewController:vc animated:YES completion:nil];
+- (void)changeLanguageWithLanguage{
+    // 让appDelegate设置语言
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [appDelegate changeAllUILanguage:switchToLanguageCodeString];
+    NSLog(@"改变语言为 %@",switchToLanguageCodeString);
+}
+
+// 接收到通知执行改变语言
+- (void) receiveLanguageChangedNotification:(NSNotification *) notification
+{
+    if ([notification.name isEqualToString:RFChangeLanguageIdentifier]){
+        // 改变label的语言
+        [self setLabelLanguage];
+    }
 }
 
 
 // 消除通知
 -(void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:ACLanguageUtilLanguageIdentifier object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:RFChangeLanguageIdentifier object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
